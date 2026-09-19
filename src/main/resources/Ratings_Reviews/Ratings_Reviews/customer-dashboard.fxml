@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ratings_Reviews.Ratings_Reviews.CustomerDashboardController" styleClass="app-background">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="18" styleClass="top-bar">
+            <padding><Insets bottom="18" left="30" right="30" top="18" /></padding>
+            <Label text="VALMORA" styleClass="brand small-brand" />
+            <Label text="Customer centre" styleClass="top-title" />
+            <HBox HBox.hgrow="ALWAYS" />
+            <Button text="Log out" onAction="#logout" styleClass="secondary-button" />
+        </HBox>
+    </top>
+    <center>
+        <VBox maxWidth="1020" spacing="18" styleClass="wide-content dashboard-shell">
+            <padding><Insets bottom="35" left="22" right="22" top="34" /></padding>
+            <Label fx:id="welcomeLabel" styleClass="screen-title" />
+            <Label text="Only verified purchases are shown here, so every rating comes from a genuine customer." styleClass="muted-text" wrapText="true" />
+            <HBox alignment="CENTER_LEFT" spacing="22" styleClass="summary-panel">
+                <VBox spacing="4">
+                    <Label text="CUSTOMER RATINGS" styleClass="product-kicker" />
+                    <Label fx:id="productSummaryLabel" styleClass="hero-rating" />
+                </VBox>
+                <Label text="★★★★★" styleClass="review-stars" />
+                <Label text="Verified feedback from your purchased products" styleClass="muted-text" />
+            </HBox>
+            <Label text="Your purchased products" styleClass="screen-title" />
+            <Label text="Choose a product to view its community reviews or add your own." styleClass="muted-text" />
+            <HBox alignment="CENTER_LEFT" spacing="24" styleClass="product-hero-card">
+                <ImageView fitHeight="220" fitWidth="220" preserveRatio="true" styleClass="product-image">
+                    <image><Image url="@images/valmora-product-hero.png" /></image>
+                </ImageView>
+                <VBox spacing="12" HBox.hgrow="ALWAYS">
+                    <Label text="VERIFIED PURCHASE" styleClass="product-kicker" />
+                    <ComboBox fx:id="productBox" onAction="#showProductDetails" maxWidth="1.7976931348623157E308" />
+                    <Label fx:id="productDescriptionLabel" styleClass="body-text" wrapText="true" />
+                    <Button text="View product reviews  →" onAction="#openProductReviews" styleClass="primary-button" />
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+    <padding><Insets bottom="35" left="80" right="80" top="20" /></padding>
+</BorderPane>

@@ -1,0 +1,257 @@
+/*
+ * JavaFX CSS is NOT the same language as web CSS. It reuses familiar
+ * property names but:
+ *   - most properties are prefixed with -fx- (e.g. background-color -> -fx-background-color)
+ *   - there's no flexbox/grid, box-shadow, backdrop-filter, gradients use
+ *     a different linear-gradient(...) syntax, and there are no pseudo
+ *     elements like ::before
+ *   - layout (rows/columns/spacing) is done in the FXML via HBox/VBox/GridPane,
+ *     not in CSS
+ *
+ * Below is the same color palette and general dark/luxury feel as your
+ * :root variables, translated to what JavaFX actually supports.
+ */
+
+.root {
+    -fx-background-color: #0A0A0A;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 13px;
+    -fx-text-fill: #FFFFFF;
+}
+
+.app-topbar {
+    -fx-background-color: #121212;
+    -fx-border-color: transparent transparent rgba(214,214,214,0.18) transparent;
+    -fx-border-width: 0 0 1 0;
+}
+.app-brand {
+    -fx-font-size: 14px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #FFFFFF;
+    -fx-letter-spacing: 1px;
+}
+.app-user {
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #CFCFCF;
+}
+
+.screen {
+    -fx-background-color: #0A0A0A;
+}
+
+/* Fixed top-left bar holding the back button on every non-home screen,
+   so it stays pinned in the corner instead of scrolling with content. */
+.topbar {
+    -fx-padding: 24 32 0 32;
+}
+
+.page-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #FFFFFF;
+}
+
+.page-sub {
+    -fx-font-size: 13px;
+    -fx-text-fill: #CFCFCF;
+}
+
+/* Dashboard cards */
+.dash-card {
+    -fx-background-color: #1A1A1A;
+    -fx-border-color: rgba(214,214,214,0.32);
+    -fx-border-width: 0.5;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-padding: 22;
+    -fx-pref-width: 220;
+    -fx-cursor: hand;
+}
+.dash-card:hover {
+    -fx-background-color: #242424;
+    -fx-border-color: rgba(214,214,214,0.5);
+}
+.dash-card-icon { -fx-font-size: 24px; }
+.dash-card-title { -fx-font-size: 15px; -fx-font-weight: 700; -fx-text-fill: #FFFFFF; }
+.dash-card-desc { -fx-font-size: 11px; -fx-text-fill: #CFCFCF; }
+
+/* Product screen */
+.product-image-panel {
+    -fx-background-color: #1A1A1A;
+}
+.product-details-panel {
+    -fx-background-color: #0A0A0A;
+}
+.product-name { -fx-font-size: 36px; -fx-font-weight: 800; -fx-text-fill: #FFFFFF; }
+.product-desc { -fx-font-size: 12px; -fx-text-fill: #CFCFCF; }
+.product-price { -fx-font-size: 26px; -fx-font-weight: 700; -fx-text-fill: #FFFFFF; }
+.price-old { -fx-font-size: 13px; -fx-text-fill: #CFCFCF; -fx-strikethrough: true; }
+.selector-title { -fx-font-size: 11px; -fx-text-fill: #CFCFCF; -fx-font-weight: 600; }
+
+.color-opt, .storage-opt {
+    -fx-background-color: #1A1A1A;
+    -fx-border-color: rgba(214,214,214,0.20);
+    -fx-border-width: 0.5;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-text-fill: #F5F5F5;
+    -fx-padding: 6 16;
+}
+.color-opt:selected, .storage-opt:selected {
+    -fx-background-color: #F5F5F5;
+    -fx-text-fill: #0A0A0A;
+}
+
+.qty-btn {
+    -fx-background-color: #1A1A1A;
+    -fx-border-color: rgba(214,214,214,0.20);
+    -fx-text-fill: #F5F5F5;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-min-width: 32;
+    -fx-min-height: 32;
+}
+.qty-num { -fx-font-size: 14px; -fx-text-fill: #F5F5F5; }
+.error-text { -fx-text-fill: #f87171; -fx-font-size: 11px; }
+
+.btn-add-cart {
+    -fx-background-color: #F5F5F5;
+    -fx-text-fill: #0A0A0A;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999;
+    -fx-padding: 10 24;
+    -fx-cursor: hand;
+}
+.btn-add-cart:hover { -fx-background-color: #D6D6D6; }
+
+.btn-buy-now {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(214,214,214,0.35);
+    -fx-text-fill: #F5F5F5;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-padding: 10 24;
+    -fx-cursor: hand;
+}
+
+.btn-back {
+    -fx-background-color: #1A1A1A;
+    -fx-border-color: rgba(214,214,214,0.32);
+    -fx-border-width: 0.5;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: 600;
+    -fx-padding: 8 18;
+    -fx-cursor: hand;
+}
+.btn-back:hover {
+    -fx-background-color: #242424;
+    -fx-border-color: rgba(214,214,214,0.5);
+}
+
+.delivery-note { -fx-font-size: 11px; -fx-text-fill: #CFCFCF; }
+
+/* Text inputs — TextField/TextArea/PasswordField/DatePicker all default to
+   plain white JavaFX styling, which clashes badly with a dark theme. */
+.text-field, .text-area, .password-field, .date-picker {
+    -fx-background-color: #1A1A1A;
+    -fx-text-fill: #FFFFFF;
+    -fx-prompt-text-fill: #8A8A8A;
+    -fx-border-color: rgba(214,214,214,0.32);
+    -fx-border-width: 1;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 8 12;
+}
+.text-field:focused, .text-area:focused, .password-field:focused, .date-picker:focused {
+    -fx-border-color: #FFFFFF;
+}
+.text-area .content {
+    -fx-background-color: #1A1A1A;
+    -fx-background-radius: 8;
+}
+/* DatePicker's little popup-arrow button and the text inside its editor */
+.date-picker > .arrow-button {
+    -fx-background-color: #1A1A1A;
+}
+.date-picker .arrow {
+    -fx-background-color: #FFFFFF;
+}
+
+/* Cart row text — plain Labels built in Java code need an explicit color,
+   otherwise they fall back to JavaFX's default (near-black, invisible here). */
+.cart-item-name { -fx-font-size: 13px; -fx-text-fill: #FFFFFF; }
+.cart-item-meta { -fx-font-size: 12px; -fx-text-fill: #CFCFCF; }
+.cart-item-price { -fx-font-size: 13px; -fx-font-weight: 700; -fx-text-fill: #FFFFFF; }
+
+/* Small pill buttons for the qty +/- and Remove controls in the cart rows */
+.qty-mini-btn {
+    -fx-background-color: #242424;
+    -fx-border-color: rgba(214,214,214,0.32);
+    -fx-border-width: 1;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-min-width: 30;
+    -fx-min-height: 30;
+    -fx-cursor: hand;
+}
+.qty-mini-btn:hover { -fx-background-color: #2E2E2E; }
+
+.btn-remove {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(248,113,113,0.5);
+    -fx-text-fill: #f87171;
+    -fx-font-weight: 600;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-padding: 6 14;
+    -fx-cursor: hand;
+}
+.btn-remove:hover { -fx-background-color: rgba(248,113,113,0.12); }
+
+/* Cart list */
+.list-view {
+    -fx-background-color: #1A1A1A;
+    -fx-border-color: rgba(214,214,214,0.12);
+}
+.list-cell {
+    -fx-background-color: #1A1A1A;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: transparent transparent rgba(214,214,214,0.12) transparent;
+}
+.list-cell:filled:hover {
+    -fx-background-color: #242424;
+}
+.list-cell:filled:selected {
+    -fx-background-color: #2A2A2A;
+}
+
+/* Track / order status badges — brighter background so the text doesn't wash out */
+.status-badge {
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+    -fx-padding: 4 12;
+    -fx-background-radius: 999;
+}
+.status-processing { -fx-background-color: rgba(250,204,21,0.25); -fx-text-fill: #ffd230; }
+.status-shipped { -fx-background-color: rgba(96,165,250,0.25); -fx-text-fill: #7db8ff; }
+.status-delivered { -fx-background-color: rgba(74,222,128,0.25); -fx-text-fill: #5eeb95; }
+.status-cancelled { -fx-background-color: rgba(248,113,113,0.25); -fx-text-fill: #ff8f8f; }
+.status-returned { -fx-background-color: rgba(167,139,250,0.25); -fx-text-fill: #b9a3ff; }
+
+.btn-danger {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(248,113,113,0.5);
+    -fx-text-fill: #f87171;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-padding: 10 24;
+    -fx-cursor: hand;
+}
+.btn-danger:hover { -fx-background-color: rgba(248,113,113,0.12); }
+.btn-danger:disabled { -fx-opacity: 0.35; -fx-cursor: default; }
+

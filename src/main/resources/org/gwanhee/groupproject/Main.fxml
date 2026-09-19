@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<StackPane fx:id="rootPane" prefHeight="600" prefWidth="350" stylesheets="@modern.css" styleClass="screen" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gwanhee.groupproject.MainController">
+  <children>
+    <BorderPane fx:id="mainContent">
+      <top><HBox styleClass="topbar"><children><Label text="Customer Portal" styleClass="field-label"/><Region HBox.hgrow="ALWAYS"/><Button onAction="#toggleSidebar" text="☰" styleClass="menu-button"/></children></HBox></top>
+      <center>
+        <VBox styleClass="page">
+          <children>
+            <VBox styleClass="hero" maxWidth="310"><children><Label text="Welcome back" styleClass="hero-title"/><Label text="Manage your profile, payments and recent orders from one place." styleClass="hero-text" wrapText="true"/></children></VBox>
+            <VBox styleClass="card" maxWidth="310"><children><Label text="Quick overview" styleClass="title"/><Label text="Use the menu in the top-right corner to access your account options." styleClass="subtitle" wrapText="true"/></children></VBox>
+          </children>
+        </VBox>
+      </center>
+    </BorderPane>
+    <VBox fx:id="sideBar" alignment="TOP_LEFT" managed="false" visible="false" styleClass="sidebar" StackPane.alignment="CENTER_RIGHT">
+      <children>
+        <Label text="Menu" styleClass="title"/>
+        <Button fx:id="profileDetailButton" onAction="#openprofile" text="Profile" styleClass="ghost-button"/>
+        <Button fx:id="orderHistoryButton" onAction="#orderHistory" text="Order History" styleClass="ghost-button"/>
+        <Button fx:id="customerHelpButton" onAction="#openhelp" text="Customer Help" styleClass="ghost-button"/>
+        <Region VBox.vgrow="ALWAYS"/>
+        <Button fx:id="closeButton" onAction="#toggleSidebar" text="Close" styleClass="secondary-button"/>
+        <Button fx:id="closeButton1" onAction="#logoutfunction" text="Log out" styleClass="danger-button"/>
+      </children>
+    </VBox>
+  </children>
+</StackPane>

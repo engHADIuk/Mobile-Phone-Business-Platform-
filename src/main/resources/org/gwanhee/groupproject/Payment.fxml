@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="600" prefWidth="350" styleClass="page screen" stylesheets="@modern.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gwanhee.groupproject.PaymentController">
+ <children><VBox maxWidth="310" styleClass="card"><children><Label styleClass="title" text="Payment method" /><Label styleClass="subtitle" text="Manage the payment methods linked to your account." /><VBox styleClass="info-row"><children><Label styleClass="info-label" text="CURRENT METHOD" /><Label styleClass="info-value" fx:id="currentPaymentLabel" text="No payment method added" /></children></VBox><Button maxWidth="Infinity" onAction="#addPayment" styleClass="primary-button" text="Add payment method" /><Button maxWidth="Infinity" onAction="#deletePayment" styleClass="danger-button" text="Delete payment method" /><Button fx:id="returnhome" maxWidth="Infinity" onAction="#returnbutton" styleClass="ghost-button" text="Back" /></children></VBox></children>
+</VBox>

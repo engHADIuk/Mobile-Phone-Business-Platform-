@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12"
+      alignment="CENTER"
+      prefWidth="430"
+      prefHeight="360"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.gwanhee.groupproject.DeleteCardController"
+      styleClass="card"
+      stylesheets="@modern.css">
+
+    <Label text="Delete Payment Card" styleClass="title" />
+
+    <Label text="Select a card to delete." styleClass="subtitle" />
+
+    <ListView fx:id="cardListView" prefHeight="190" prefWidth="360" />
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Delete Selected" onAction="#deleteSelectedCard" styleClass="danger-button" />
+        <Button text="Cancel" onAction="#cancel" styleClass="secondary-button" />
+    </HBox>
+
+</VBox>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox styleClass="screen" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="velmora.controller.ReturnsController">
+
+    <HBox styleClass="topbar" alignment="CENTER_LEFT">
+        <Button text="← Dashboard" onAction="#goBack" styleClass="btn-back"/>
+    </HBox>
+
+    <VBox spacing="20" VBox.vgrow="ALWAYS">
+        <padding><Insets top="16" right="80" bottom="48" left="80"/></padding>
+
+        <Label text="Return Items" styleClass="page-title"/>
+        <Label text="Return policy: an order can be returned within 30 days of being marked Delivered. Once that window closes, or if the order was never delivered, it is no longer eligible for return."
+               styleClass="page-sub" wrapText="true"/>
+
+        <HBox spacing="24" VBox.vgrow="ALWAYS">
+            <ListView fx:id="deliveredOrdersListView" HBox.hgrow="ALWAYS" prefWidth="480"/>
+
+            <VBox spacing="10" styleClass="dash-card" prefWidth="360" minWidth="360">
+                <Label fx:id="placeholderLabel" text="Select a delivered order to check its return eligibility."
+                       styleClass="page-sub" wrapText="true"/>
+
+                <Label fx:id="detailId" text="" styleClass="dash-card-title" visible="false" managed="false"/>
+                <Label fx:id="detailSummary" text="" styleClass="page-sub" wrapText="true" visible="false" managed="false"/>
+                <Label fx:id="detailDate" text="" styleClass="page-sub" visible="false" managed="false"/>
+                <Label fx:id="eligibilityLabel" text="" styleClass="status-badge" visible="false" managed="false"/>
+
+                <Label text="Select item(s) to return" styleClass="selector-title"/>
+                <VBox fx:id="itemsCheckBox" spacing="6"/>
+
+                <TextArea fx:id="reasonField" promptText="Reason for return" prefRowCount="3"
+                          wrapText="true" visible="false" managed="false"/>
+
+                <Label fx:id="confirmSectionLabel" text="Confirm your account to return" styleClass="selector-title" visible="false" managed="false"/>
+                <TextField fx:id="confirmEmailField" promptText="Email" visible="false" managed="false"/>
+                <PasswordField fx:id="confirmPasswordField" promptText="Password" visible="false" managed="false"/>
+
+                <Label fx:id="returnError" text="" styleClass="error-text" visible="false" managed="false" wrapText="true"/>
+                <Label fx:id="returnedNotice" text="Return started for the selected item(s)." styleClass="status-badge status-returned"
+                       visible="false" managed="false"/>
+
+                <Button fx:id="startReturnButton" text="Start Return" onAction="#startReturn"
+                        styleClass="btn-add-cart" visible="false" managed="false"/>
+            </VBox>
+        </HBox>
+    </VBox>
+</VBox>

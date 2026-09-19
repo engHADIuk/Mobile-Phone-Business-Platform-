@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="Ecommerce.Products.LoginController"
+           styleClass="root-bg">
+
+    <VBox fx:id="loginCard" alignment="CENTER" spacing="6" maxWidth="360" styleClass="login-card">
+        <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+
+        <Label text="VELMORA" styleClass="brand-title"/>
+        <Label fx:id="portalLabel" text="Customer Portal" styleClass="portal-subtitle"/>
+        <Label fx:id="restrictedBadge" text="RESTRICTED ACCESS" styleClass="restricted-badge" visible="false" managed="false"/>
+
+        <VBox spacing="4" styleClass="field-group">
+            <padding><Insets top="16"/></padding>
+            <Label text="Email Address" styleClass="field-label"/>
+            <TextField fx:id="emailField" promptText="customer@example.com" styleClass="text-input"/>
+        </VBox>
+
+        <VBox spacing="4" styleClass="field-group">
+            <padding><Insets top="10"/></padding>
+            <Label text="Password" styleClass="field-label"/>
+            <PasswordField fx:id="passwordField" promptText="••••••••••" styleClass="text-input"/>
+        </VBox>
+
+        <Label fx:id="domainHelper" text="Admin access requires a @velmora.com email address" styleClass="domain-helper" visible="false" managed="false"/>
+        <Label fx:id="errorLabel" styleClass="error-label" visible="false" managed="false"/>
+
+        <Button fx:id="loginButton" text="Login" styleClass="primary-button" maxWidth="Infinity" onAction="#handleLogin">
+            <VBox.margin><Insets top="18"/></VBox.margin>
+        </Button>
+
+        <Label text="Demo Credentials" styleClass="muted-label">
+            <VBox.margin><Insets top="20"/></VBox.margin>
+        </Label>
+        <Label fx:id="demoFillLabel" text="Click to auto-fill: customer@example.com" styleClass="demo-link" onMouseClicked="#handleAutoFill"/>
+
+        <Label fx:id="switchPortalLink" text="Admin Login →" styleClass="switch-link" onMouseClicked="#handleSwitchPortal">
+            <VBox.margin><Insets top="14"/></VBox.margin>
+        </Label>
+    </VBox>
+</StackPane>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="600" prefWidth="350" stylesheets="@modern.css" styleClass="screen" fx:controller="org.gwanhee.groupproject.ProfileController" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+  <content>
+    <VBox styleClass="page">
+      <children>
+        <HBox alignment="CENTER" spacing="14"><children><StackPane styleClass="avatar"><children><Label text="U" styleClass="avatar-text"/></children></StackPane><VBox><children><Label text="Your profile" styleClass="title"/><Label text="Manage account information" styleClass="subtitle"/></children></VBox></children></HBox>
+        <VBox maxWidth="310" styleClass="card"><children>
+          <VBox styleClass="info-row"><children><Label  text="EMAIL" styleClass="info-label"/><Label fx:id="emailLabel" text="Email" styleClass="info-value"/></children></VBox>
+          <VBox styleClass="info-row"><children><Label  text="CUSTOMER ID" styleClass="info-label"/><Label fx:id="customerIdLabel" text="ID" styleClass="info-value"/></children></VBox>
+          <VBox styleClass="info-row"><children><Label  text="PAYMENT" styleClass="info-label"/><Label fx:id="paymentLabel" text="No payment method" styleClass="info-value"/></children></VBox>
+          <Button fx:id="addPayment" maxWidth="Infinity" onAction="#addPaymentMethod" text="Add payment method" styleClass="secondary-button"/>
+          <VBox styleClass="info-row"><children><Label  text="DELIVERY ADDRESS" styleClass="info-label"/><Label fx:id="addressLabel" text="Delivery Address" wrapText="true" styleClass="info-value"/></children></VBox>
+          <Button maxWidth="Infinity" onAction="#changeAddress" text="Change delivery address" styleClass="ghost-button"/>
+          <Button fx:id="del_deact" maxWidth="Infinity" onAction="#delete_deactivate" text="Delete or deactivate account" styleClass="danger-button"/>
+          <Button maxWidth="Infinity" onAction="#backtomain" text="Back to main" styleClass="primary-button"/>
+        </children></VBox>
+      </children>
+    </VBox>
+  </content>
+</ScrollPane>

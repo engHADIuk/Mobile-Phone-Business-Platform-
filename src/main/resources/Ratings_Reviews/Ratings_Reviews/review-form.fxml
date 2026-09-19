@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ratings_Reviews.Ratings_Reviews.ReviewFormController" styleClass="app-background">
+    <children>
+        <VBox maxWidth="760" spacing="12" styleClass="content-card" AnchorPane.bottomAnchor="40" AnchorPane.leftAnchor="175" AnchorPane.rightAnchor="175" AnchorPane.topAnchor="40">
+            <padding><Insets bottom="30" left="38" right="38" top="30" /></padding>
+            <HBox alignment="CENTER_LEFT" spacing="16">
+                <ImageView fitHeight="62" fitWidth="62" preserveRatio="true" styleClass="product-image">
+                    <image><Image url="@images/valmora-product-hero.png" /></image>
+                </ImageView>
+                <VBox spacing="4">
+                    <Label fx:id="headingLabel" styleClass="screen-title" />
+                    <Label fx:id="productLabel" styleClass="muted-text" />
+                </VBox>
+            </HBox>
+            <Label text="Rating (required)" styleClass="field-label" />
+            <ComboBox fx:id="ratingBox" promptText="Choose 1–5 stars" maxWidth="1.7976931348623157E308" />
+            <Label text="Review title — maximum 100 characters" styleClass="field-label" />
+            <TextField fx:id="titleField" promptText="Summarise your experience" maxWidth="1.7976931348623157E308" />
+            <Label text="Comment — maximum 1000 characters; no @, . # / \ ? &quot; ' ~ ` or $" styleClass="field-label" wrapText="true" />
+            <TextArea fx:id="commentField" promptText="Tell other customers what you think" prefRowCount="7" wrapText="true" />
+            <Label fx:id="messageLabel" styleClass="message-label" wrapText="true" />
+            <HBox alignment="CENTER_RIGHT" spacing="10">
+                <Button text="Cancel" onAction="#cancel" styleClass="secondary-button" />
+                <Button text="Save review" onAction="#save" styleClass="primary-button" />
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

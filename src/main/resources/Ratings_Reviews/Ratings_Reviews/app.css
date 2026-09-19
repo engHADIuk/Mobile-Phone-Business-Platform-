@@ -1,0 +1,151 @@
+/* VALMORA visual system, based on the customer/admin portal prototype. */
+.app-background {
+    -fx-background-color: #050505;
+    -fx-font-family: "Avenir Next", "Arial";
+}
+
+.top-bar {
+    -fx-background-color: #0b0b0b;
+    -fx-border-color: #282828;
+    -fx-border-width: 0 0 1 0;
+}
+
+.login-card, .content-card {
+    -fx-background-color: #1a1a1a;
+    -fx-background-radius: 12;
+    -fx-border-color: #303030;
+    -fx-border-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.42), 22, 0.18, 0, 7);
+}
+
+.wide-content {
+    -fx-background-color: transparent;
+    -fx-max-width: 1100;
+}
+
+.dashboard-shell { -fx-max-width: 1020; }
+
+.brand {
+    -fx-text-fill: #f4f4f4;
+    -fx-font-size: 30px;
+    -fx-font-weight: 800;
+    -fx-font-family: "Avenir Next Condensed", "Arial";
+}
+
+.small-brand { -fx-font-size: 19px; }
+.screen-title { -fx-text-fill: #f2f2f2; -fx-font-size: 24px; -fx-font-weight: bold; }
+.top-title { -fx-text-fill: #b8b8b8; -fx-font-size: 16px; }
+.section-heading { -fx-text-fill: #e7e7e7; -fx-font-size: 15px; -fx-font-weight: bold; }
+.field-label { -fx-text-fill: #b9b9b9; -fx-font-size: 13px; -fx-font-weight: bold; }
+.body-text { -fx-text-fill: #e3e3e3; -fx-font-size: 14px; }
+.muted-text, .hint-text { -fx-text-fill: #a3a3a3; -fx-font-size: 13px; }
+.hint-text { -fx-font-size: 11px; }
+.message-label { -fx-text-fill: #ff8989; -fx-font-size: 13px; }
+.rating-summary { -fx-text-fill: #f1f1f1; -fx-font-size: 15px; -fx-font-weight: bold; }
+
+.summary-panel {
+    -fx-background-color: #111111;
+    -fx-background-radius: 10;
+    -fx-padding: 14;
+    -fx-border-color: #303030;
+    -fx-border-radius: 10;
+}
+
+.hero-rating { -fx-font-size: 21px; -fx-font-weight: bold; -fx-text-fill: #ffffff; }
+.product-hero-card {
+    -fx-background-color: #171717;
+    -fx-background-radius: 12;
+    -fx-border-color: #303030;
+    -fx-border-radius: 12;
+    -fx-padding: 18;
+}
+.product-image {
+    -fx-background-radius: 9;
+    -fx-border-color: #3a3a3a;
+    -fx-border-radius: 9;
+}
+.product-name { -fx-text-fill: #f6f6f6; -fx-font-size: 27px; -fx-font-weight: bold; }
+.product-kicker { -fx-text-fill: #aaa; -fx-font-size: 12px; -fx-font-weight: bold; }
+.metric-panel {
+    -fx-background-color: #1a1a1a;
+    -fx-background-radius: 10;
+    -fx-border-color: #303030;
+    -fx-border-radius: 10;
+    -fx-padding: 18;
+}
+
+.button {
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-padding: 10 14;
+}
+
+.primary-button {
+    -fx-background-color: #f2f2f2;
+    -fx-text-fill: #101010;
+}
+
+.primary-button:hover { -fx-background-color: #d8d8d8; }
+
+.secondary-button {
+    -fx-background-color: #101010;
+    -fx-text-fill: #e6e6e6;
+    -fx-border-color: #3b3b3b;
+    -fx-border-radius: 6;
+}
+
+.secondary-button:hover { -fx-background-color: #252525; -fx-border-color: #686868; }
+
+.danger-button {
+    -fx-background-color: #211414;
+    -fx-text-fill: #ffb5b5;
+    -fx-border-color: #6a3333;
+    -fx-border-radius: 6;
+}
+
+.danger-button:hover { -fx-background-color: #3a1d1d; }
+
+.text-field, .password-field, .text-area, .combo-box {
+    -fx-background-color: #090909;
+    -fx-text-fill: #ededed;
+    -fx-prompt-text-fill: #777777;
+    -fx-background-radius: 6;
+    -fx-border-color: #383838;
+    -fx-border-radius: 6;
+    -fx-padding: 9;
+}
+
+.text-area .content { -fx-background-color: #090909; }
+.combo-box .list-cell { -fx-text-fill: #e8e8e8; -fx-background-color: #090909; }
+.combo-box-popup .list-view { -fx-background-color: #121212; -fx-border-color: #383838; }
+.combo-box-popup .list-cell:hover { -fx-background-color: #292929; }
+.combo-box .arrow { -fx-background-color: #cccccc; }
+
+.list-view {
+    -fx-background-color: #111111;
+    -fx-border-color: #383838;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.list-cell { -fx-background-color: transparent; -fx-padding: 7; }
+.list-cell:filled:selected { -fx-background-color: #303030; }
+.review-card {
+    -fx-padding: 17;
+    -fx-text-fill: #ededed;
+    -fx-font-size: 13px;
+    -fx-background-color: #1b1b1b;
+    -fx-background-radius: 9;
+    -fx-border-color: #303030;
+    -fx-border-radius: 9;
+}
+.review-author { -fx-text-fill: #fafafa; -fx-font-size: 14px; -fx-font-weight: bold; }
+.review-stars { -fx-text-fill: #f1f1f1; -fx-font-size: 16px; }
+.review-title { -fx-text-fill: #f2f2f2; -fx-font-size: 14px; -fx-font-weight: bold; }
+.review-meta, .review-footer { -fx-text-fill: #a7a7a7; -fx-font-size: 11px; }
+.review-comment { -fx-text-fill: #c4c4c4; -fx-font-size: 13px; }
+.status-pill { -fx-text-fill: #78e4a0; -fx-font-size: 11px; -fx-font-weight: bold; }
+
+.scroll-bar:vertical, .scroll-bar:horizontal { -fx-background-color: #101010; }
+.scroll-bar .thumb { -fx-background-color: #4a4a4a; -fx-background-radius: 0; }

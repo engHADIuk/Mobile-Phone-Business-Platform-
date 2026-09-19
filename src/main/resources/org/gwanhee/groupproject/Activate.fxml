@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox alignment="CENTER" prefHeight="600" prefWidth="350" stylesheets="@modern.css" styleClass="screen" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gwanhee.groupproject.ActiveController">
+ <children><VBox maxWidth="310" styleClass="card"><children><Label text="Activate account" styleClass="title"/><Label fx:id="text" text="Enter your ID and password to reactivate your account." styleClass="subtitle" wrapText="true"/><Label text="ID" styleClass="field-label"/><TextField fx:id="idfield" promptText="Enter your ID"/><Label text="Password" styleClass="field-label"/><PasswordField fx:id="passwordfield" promptText="Enter your password"/><Button fx:id="activebutton" maxWidth="Infinity" onAction="#activeaccount" text="Activate" styleClass="primary-button"/><Label maxWidth="Infinity" alignment="CENTER" onMouseClicked="#back" text="Back" styleClass="link-label"/></children></VBox></children>
+</VBox>

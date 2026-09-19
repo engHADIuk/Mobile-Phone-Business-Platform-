@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox styleClass="screen" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="velmora.controller.ManageController">
+
+    <HBox styleClass="topbar" alignment="CENTER_LEFT">
+        <Button text="← Dashboard" onAction="#goBack" styleClass="btn-back"/>
+    </HBox>
+
+    <VBox spacing="20" VBox.vgrow="ALWAYS">
+        <padding><Insets top="16" right="80" bottom="48" left="80"/></padding>
+
+        <Label text="Manage Orders" styleClass="page-title"/>
+        <Label text="Cancel an order before it ships, or sign in as an admin to update any order's status."
+               styleClass="page-sub" wrapText="true"/>
+
+        <VBox fx:id="roleSelectBox" alignment="CENTER" spacing="20" VBox.vgrow="ALWAYS">
+            <HBox spacing="20" alignment="CENTER">
+                <VBox styleClass="dash-card" onMouseClicked="#chooseCustomerRole" spacing="8" prefWidth="240">
+                    <Label text="👤" styleClass="dash-card-icon"/>
+                    <Label text="Log in as Customer" styleClass="dash-card-title"/>
+                    <Label text="View and cancel an open order" styleClass="dash-card-desc" wrapText="true"/>
+                </VBox>
+                <VBox styleClass="dash-card" onMouseClicked="#chooseAdminRole" spacing="8" prefWidth="240">
+                    <Label text="🛠️" styleClass="dash-card-icon"/>
+                    <Label text="Log in as Admin" styleClass="dash-card-title"/>
+                    <Label text="View every order and update its status" styleClass="dash-card-desc" wrapText="true"/>
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <VBox fx:id="adminLoginBox" alignment="CENTER" spacing="12" VBox.vgrow="ALWAYS" visible="false" managed="false">
+            <VBox spacing="12" styleClass="dash-card" prefWidth="360" maxWidth="360">
+                <Label text="Admin Login" styleClass="dash-card-title"/>
+                <TextField fx:id="adminUsernameField" promptText="Username"/>
+                <PasswordField fx:id="adminPasswordField" promptText="Password"/>
+                <Label fx:id="adminLoginError" text="" styleClass="error-text" visible="false" managed="false" wrapText="true"/>
+                <Button text="Log In" onAction="#adminLogin" styleClass="btn-add-cart"/>
+                <Button text="← Back" onAction="#backToRoleSelect" styleClass="btn-back"/>
+            </VBox>
+        </VBox>
+
+        <HBox fx:id="customerContent" spacing="24" VBox.vgrow="ALWAYS" visible="false" managed="false">
+            <ListView fx:id="customerOrdersListView" HBox.hgrow="ALWAYS" prefWidth="480"/>
+
+            <VBox spacing="10" styleClass="dash-card" prefWidth="320" minWidth="320">
+                <Label fx:id="customerPlaceholder" text="Select an order to manage it." styleClass="page-sub" wrapText="true"/>
+
+                <Label fx:id="customerDetailId" text="" styleClass="dash-card-title" visible="false" managed="false"/>
+                <Label fx:id="customerDetailSummary" text="" styleClass="page-sub" wrapText="true" visible="false" managed="false"/>
+                <Label fx:id="customerDetailDate" text="" styleClass="page-sub" visible="false" managed="false"/>
+                <Label fx:id="customerDetailTotal" text="" styleClass="product-price" visible="false" managed="false"/>
+                <Label fx:id="customerDetailStatus" text="" styleClass="dash-card-desc" visible="false" managed="false"/>
+                <Label fx:id="customerCancelledNotice" text="This order has been cancelled." styleClass="status-badge status-cancelled"
+                       visible="false" managed="false"/>
+
+                <TextField fx:id="cancelEmailField" promptText="Email" visible="false" managed="false"/>
+                <PasswordField fx:id="cancelPasswordField" promptText="Password" visible="false" managed="false"/>
+                <Label fx:id="cancelError" text="" styleClass="error-text" visible="false" managed="false" wrapText="true"/>
+
+                <Button fx:id="cancelButton" text="Cancel Order" onAction="#cancelSelectedOrder"
+                        styleClass="btn-danger" visible="false" managed="false"/>
+            </VBox>
+        </HBox>
+
+        <HBox fx:id="adminContent" spacing="24" VBox.vgrow="ALWAYS" visible="false" managed="false">
+            <ListView fx:id="adminOrdersListView" HBox.hgrow="ALWAYS" prefWidth="480"/>
+
+            <VBox spacing="10" styleClass="dash-card" prefWidth="340" minWidth="340">
+                <Label fx:id="adminPlaceholder" text="Select an order to manage it." styleClass="page-sub" wrapText="true"/>
+
+                <Label fx:id="adminDetailId" text="" styleClass="dash-card-title" visible="false" managed="false"/>
+                <Label fx:id="adminDetailCustomer" text="" styleClass="page-sub" wrapText="true" visible="false" managed="false"/>
+                <Label fx:id="adminDetailSummary" text="" styleClass="page-sub" wrapText="true" visible="false" managed="false"/>
+                <Label fx:id="adminDetailDate" text="" styleClass="page-sub" visible="false" managed="false"/>
+                <Label fx:id="adminDetailTotal" text="" styleClass="product-price" visible="false" managed="false"/>
+                <Label fx:id="adminDetailStatus" text="" styleClass="dash-card-desc" visible="false" managed="false"/>
+                <Label fx:id="adminDetailShipping" text="" styleClass="page-sub" wrapText="true" visible="false" managed="false"/>
+                <Label fx:id="adminDetailCard" text="" styleClass="page-sub" visible="false" managed="false"/>
+
+                <Button fx:id="markShippedButton" text="Mark as Shipped" onAction="#markShipped"
+                        styleClass="btn-add-cart" visible="false" managed="false"/>
+                <Button fx:id="markDeliveredButton" text="Mark as Delivered" onAction="#markDelivered"
+                        styleClass="btn-add-cart" visible="false" managed="false"/>
+                <Button fx:id="adminCancelButton" text="Cancel Order" onAction="#adminCancelOrder"
+                        styleClass="btn-danger" visible="false" managed="false"/>
+            </VBox>
+        </HBox>
+    </VBox>
+</VBox>

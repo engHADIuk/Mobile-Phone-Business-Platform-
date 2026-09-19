@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="root" styleClass="screen" alignment="CENTER" spacing="32" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="velmora.controller.DashboardController">
+    <padding><Insets top="48" right="80" bottom="48" left="80"/></padding>
+
+    <VBox spacing="4" alignment="CENTER">
+        <Label text="Welcome to VELMORA ✦" styleClass="page-title"/>
+        <Label text="What would you like to do today?" styleClass="page-sub"/>
+    </VBox>
+
+    <HBox spacing="16" alignment="CENTER">
+        <VBox styleClass="dash-card" onMouseClicked="#goToOrder" spacing="8">
+            <Label text="🛍️" styleClass="dash-card-icon"/>
+            <Label text="Place New Order" styleClass="dash-card-title"/>
+            <Label text="Browse the Velmora X1 and configure your ideal device" styleClass="dash-card-desc" wrapText="true"/>
+        </VBox>
+        <VBox styleClass="dash-card" onMouseClicked="#goToTrack" spacing="8">
+            <Label text="📦" styleClass="dash-card-icon"/>
+            <Label text="Order History" styleClass="dash-card-title"/>
+            <Label text="View past orders and check statuses" styleClass="dash-card-desc" wrapText="true"/>
+        </VBox>
+        <VBox styleClass="dash-card" onMouseClicked="#goToManage" spacing="8">
+            <Label text="⚙️" styleClass="dash-card-icon"/>
+            <Label text="Manage Orders" styleClass="dash-card-title"/>
+            <Label text="Modify quantities or cancel open orders" styleClass="dash-card-desc" wrapText="true"/>
+        </VBox>
+        <VBox styleClass="dash-card" onMouseClicked="#goToReturns" spacing="8">
+            <Label text="↩️" styleClass="dash-card-icon"/>
+            <Label text="Return Items" styleClass="dash-card-title"/>
+            <Label text="Start a return or check eligibility" styleClass="dash-card-desc" wrapText="true"/>
+        </VBox>
+    </HBox>
+
+    <Button text="View Cart" onAction="#goToCart" styleClass="btn-add-cart"/>
+</VBox>

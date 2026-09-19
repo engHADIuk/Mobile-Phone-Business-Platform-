@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" alignment="CENTER" prefWidth="400" prefHeight="350"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.gwanhee.groupproject.NewCardController"
+      style="-fx-padding: 20;"
+      stylesheets="@modern.css">
+
+    <Label text="Add Payment Card" style="-fx-font-size: 18;" />
+
+    <TextField fx:id="cardHolderField" promptText="Card holder name" />
+
+    <TextField fx:id="cardNumberField" promptText="Card number" />
+
+    <TextField fx:id="expiryField" promptText="MM/YY" />
+
+    <PasswordField fx:id="cvcField" promptText="CVC" />
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Save" onAction="#saveCard" />
+        <Button text="Cancel" onAction="#cancel" />
+    </HBox>
+
+</VBox>

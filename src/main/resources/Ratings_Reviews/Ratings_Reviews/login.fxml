@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ratings_Reviews.Ratings_Reviews.LoginController" styleClass="app-background">
+    <children>
+        <VBox alignment="CENTER" maxWidth="440" spacing="14" styleClass="login-card" AnchorPane.bottomAnchor="55" AnchorPane.leftAnchor="280" AnchorPane.rightAnchor="280" AnchorPane.topAnchor="55">
+            <padding><Insets bottom="35" left="32" right="32" top="30" /></padding>
+            <Label text="VALMORA" styleClass="brand" />
+            <Label text="Customer Portal" styleClass="muted-text" />
+            <Label text="Sign In" styleClass="screen-title" />
+            <Label text="Email address" styleClass="field-label" />
+            <TextField fx:id="emailField" promptText="you@example.com" maxWidth="1.7976931348623157E308" />
+            <Label text="Password" styleClass="field-label" />
+            <PasswordField fx:id="passwordField" promptText="Enter password" maxWidth="1.7976931348623157E308" onAction="#login" />
+            <Button text="Login" onAction="#login" maxWidth="1.7976931348623157E308" styleClass="primary-button" />
+            <Label fx:id="messageLabel" styleClass="message-label" wrapText="true" />
+            <Label text="Demo Credentials" styleClass="muted-text" />
+            <Button text="Auto-fill: customer@example.com" onAction="#useCustomerDemo" maxWidth="1.7976931348623157E308" styleClass="secondary-button" />
+            <Button text="Admin Login →" onAction="#useAdminDemo" maxWidth="1.7976931348623157E308" styleClass="secondary-button" />
+            <Label text="Customer password: customer123     •     Admin password: admin123" styleClass="hint-text" wrapText="true" />
+        </VBox>
+    </children>
+</AnchorPane>

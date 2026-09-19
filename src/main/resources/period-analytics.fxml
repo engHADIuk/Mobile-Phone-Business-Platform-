@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ecommerce.finance.PeriodAnalyticsController"
+      styleClass="dark-content"
+      spacing="20" fillWidth="true">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <VBox>
+            <Label text="Period Analytics" styleClass="dark-label" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+            <Label text="Month-over-month growth visualizations and historical tracking." styleClass="dark-sub" style="-fx-font-size: 13px;"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label fx:id="readOnlyLabel" text="READ-ONLY MODE" style="-fx-text-fill: #f39c12; -fx-font-weight: bold; -fx-font-size: 14px;" visible="false" managed="false"/>
+    </HBox>
+
+    <!-- Month Selection -->
+    <HBox spacing="8" alignment="CENTER_LEFT">
+        <ToggleGroup fx:id="monthToggleGroup"/>
+        <Label text="Select Month:" styleClass="dark-label" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+        <Button text="Jan" toggleGroup="$monthToggleGroup" styleClass="month-button"/>
+        <Button text="Feb" toggleGroup="$monthToggleGroup" styleClass="month-button"/>
+        <Button text="Mar" toggleGroup="$monthToggleGroup" styleClass="month-button"/>
+        <Button text="Apr" toggleGroup="$monthToggleGroup" styleClass="month-button"/>
+        <Button text="May" toggleGroup="$monthToggleGroup" styleClass="month-button"/>
+        <Button text="Jun" toggleGroup="$monthToggleGroup" styleClass="month-button"/>
+        <Button text="Jul" toggleGroup="$monthToggleGroup" styleClass="month-button"/>
+        <Button text="Aug" toggleGroup="$monthToggleGroup" styleClass="month-button"/>
+        <Button text="Sep" toggleGroup="$monthToggleGroup" styleClass="month-button"/>
+        <Button text="Oct" toggleGroup="$monthToggleGroup" styleClass="month-button"/>
+        <Button text="Nov" toggleGroup="$monthToggleGroup" styleClass="month-button"/>
+        <Button text="Dec" toggleGroup="$monthToggleGroup" styleClass="month-button"/>
+    </HBox>
+
+    <!-- KPI Cards -->
+    <GridPane hgap="15" vgap="15">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="25"/>
+            <ColumnConstraints percentWidth="25"/>
+            <ColumnConstraints percentWidth="25"/>
+            <ColumnConstraints percentWidth="25"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints/>
+        </rowConstraints>
+
+        <VBox styleClass="dark-card" spacing="5" GridPane.columnIndex="0">
+            <Label text="Current Month Revenue" styleClass="dark-sub" style="-fx-font-size: 13px;"/>
+            <Label fx:id="currentRevenueLabel" styleClass="dark-label" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        </VBox>
+
+        <VBox styleClass="dark-card" spacing="5" GridPane.columnIndex="1">
+            <Label text="Previous Month Revenue" styleClass="dark-sub" style="-fx-font-size: 13px;"/>
+            <Label fx:id="previousRevenueLabel" styleClass="dark-label" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        </VBox>
+
+        <VBox styleClass="dark-card" spacing="5" GridPane.columnIndex="2">
+            <Label text="Growth" styleClass="dark-sub" style="-fx-font-size: 13px;"/>
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label fx:id="growthLabel" styleClass="dark-label" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+                <Label fx:id="growthArrow" style="-fx-font-size: 20px;"/>
+            </HBox>
+        </VBox>
+
+        <VBox styleClass="dark-card" spacing="5" GridPane.columnIndex="3">
+            <Label text="Transactions" styleClass="dark-sub" style="-fx-font-size: 13px;"/>
+            <Label fx:id="transactionsCountLabel" styleClass="dark-label" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        </VBox>
+    </GridPane>
+
+    <!-- Chart -->
+    <VBox styleClass="dark-card" spacing="10">
+        <Label text="Revenue Trend" styleClass="dark-label" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+        <LineChart fx:id="revenueChart" title="Monthly Revenue" createSymbols="true" legendVisible="false" animated="false">
+            <xAxis>
+                <CategoryAxis label="Month" styleClass="dark-sub"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Revenue ($)" styleClass="dark-sub"/>
+            </yAxis>
+        </LineChart>
+    </VBox>
+
+    <!-- Transactions Table + CRUD buttons -->
+    <VBox styleClass="dark-card" spacing="10">
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <Label text="Recent Transactions" styleClass="dark-label" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="addButton" text="Add" onAction="#handleAddTransaction" styleClass="action-button"/>
+            <Button fx:id="deleteButton" text="Delete" onAction="#handleDeleteTransaction" styleClass="action-button-danger"/>
+        </HBox>
+
+        <!-- Toolbar for table actions -->
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 5 0 5 0;">
+            <Button fx:id="editButton" text="Edit" styleClass="action-button" onAction="#handleEdit"/>
+            <Button fx:id="modifyButton" text="Modify" styleClass="action-button" onAction="#handleModify"/>
+            <Button fx:id="printButton" text="Print" styleClass="action-button" onAction="#handlePrint"/>
+        </HBox>
+
+        <TableView fx:id="transactionsTable" styleClass="dark-table" focusTraversable="true">
+            <columns>
+                <TableColumn text="Transaction ID" fx:id="idColumn"/>
+                <TableColumn text="Product" fx:id="productColumn"/>
+                <TableColumn text="Amount" fx:id="amountColumn"/>
+                <TableColumn text="Date" fx:id="dateColumn"/>
+                <TableColumn text="Status" fx:id="statusColumn"/>
+            </columns>
+        </TableView>
+    </VBox>
+</VBox>

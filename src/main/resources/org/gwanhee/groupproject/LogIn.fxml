@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="350.0" styleClass="screen" stylesheets="@modern.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gwanhee.groupproject.LogInController">
+  <padding><Insets top="32" right="26" bottom="32" left="26"/></padding>
+  <children>
+    <VBox maxWidth="310" styleClass="card">
+      <children>
+        <Label fx:id="welcomeText" text="Welcome back" styleClass="title"/>
+        <Label text="Sign in to continue to your account." styleClass="subtitle"/>
+        <Region prefHeight="6"/>
+        <Label text="ID" styleClass="field-label"/>
+        <TextField fx:id="logInId" promptText="Enter your ID"/>
+        <Label text="Password" styleClass="field-label"/>
+        <PasswordField fx:id="logInPassword" promptText="Enter your password"/>
+        <Region prefHeight="4"/>
+        <Button fx:id="logInButton" maxWidth="Infinity" onAction="#logInDone" text="Log in" styleClass="primary-button"/>
+        <Button fx:id="registerButton" maxWidth="Infinity" onAction="#regist" text="Create account" styleClass="secondary-button"/>
+        <Label maxWidth="Infinity" alignment="CENTER" onMouseClicked="#loginhelp" text="Need help?" styleClass="link-label"/>
+      </children>
+    </VBox>
+  </children>
+</VBox>

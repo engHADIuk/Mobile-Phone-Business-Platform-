@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox prefHeight="600" prefWidth="350" stylesheets="@modern.css" styleClass="page screen" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gwanhee.groupproject.HelpController">
+ <children><VBox maxWidth="310" styleClass="card"><children><Label text="How can we help?" styleClass="title"/><Label text="Choose an option below." styleClass="subtitle"/><Button maxWidth="Infinity" text="Login help" styleClass="ghost-button"/><Button maxWidth="Infinity" text="Registration help" styleClass="ghost-button"/><Button maxWidth="Infinity" text="Payment help" styleClass="ghost-button"/><Button maxWidth="Infinity" text="Delivery help" styleClass="ghost-button"/><Button maxWidth="Infinity" onMouseClicked="#activate" text="Activate account" styleClass="secondary-button"/><Label maxWidth="Infinity" alignment="CENTER" onMouseClicked="#back" text="Back" styleClass="link-label"/></children></VBox></children>
+</VBox>

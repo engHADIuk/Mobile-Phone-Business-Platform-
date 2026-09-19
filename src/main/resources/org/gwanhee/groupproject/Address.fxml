@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox prefHeight="600" prefWidth="350" stylesheets="@modern.css" styleClass="page screen"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.gwanhee.groupproject.NewAddressController">
+ <VBox maxWidth="310" styleClass="card">
+  <children>
+   <Label text="Delivery address" styleClass="title"/>
+   <Label text="Update where your orders should be delivered." styleClass="subtitle"/>
+   <Label text="Current address" styleClass="field-label"/>
+   <VBox styleClass="info-row">
+    <children>
+     <Label fx:id="currentAddressLabel" text="Address not loaded" styleClass="info-value" wrapText="true"/>
+    </children>
+   </VBox>
+   <Label text="New address" styleClass="field-label"/>
+   <TextField fx:id="addressLineField" promptText="Enter new delivery address"/>
+   <Button maxWidth="Infinity" text="Save address" onAction="#saveAddress" styleClass="primary-button"/>
+   <Button fx:id="returnhome" maxWidth="Infinity" onAction="#closeWindow" text="Back" styleClass="ghost-button"/>
+  </children>
+ </VBox>
+</VBox>

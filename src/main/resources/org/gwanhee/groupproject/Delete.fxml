@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox prefHeight="600" prefWidth="350" stylesheets="@modern.css" styleClass="page screen" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gwanhee.groupproject.DeleteController">
+ <children><VBox maxWidth="310" styleClass="card"><children><Label text="Account settings" styleClass="title"/><Label text="Enter your password before deleting or deactivating your account." styleClass="subtitle" wrapText="true"/><Label text="Current password" styleClass="field-label"/><PasswordField fx:id="passwordField" promptText="Enter password"/><Button maxWidth="Infinity" onAction="#deactivatebutton" text="Deactivate account" styleClass="secondary-button"/><Button maxWidth="Infinity" onAction="#deletebutton" text="Delete permanently" styleClass="danger-button"/><Button fx:id="returnhome" maxWidth="Infinity" onAction="#returnbutton" text="Back" styleClass="ghost-button"/></children></VBox></children>
+</VBox>

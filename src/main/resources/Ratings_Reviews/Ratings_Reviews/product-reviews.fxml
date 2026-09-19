@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ratings_Reviews.Ratings_Reviews.ProductReviewsController" styleClass="app-background">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="14" styleClass="top-bar">
+            <padding><Insets bottom="14" left="25" right="25" top="14" /></padding>
+            <Label text="VALMORA" styleClass="brand small-brand" />
+            <HBox HBox.hgrow="ALWAYS" />
+            <Button text="Log out" onAction="#logout" styleClass="secondary-button" />
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="12" styleClass="wide-content">
+            <padding><Insets bottom="25" left="35" right="35" top="25" /></padding>
+            <Button text="← Back to products" onAction="#back" styleClass="secondary-button" />
+            <HBox alignment="CENTER_LEFT" spacing="28" styleClass="product-hero-card">
+                <ImageView fitHeight="290" fitWidth="380" preserveRatio="true" styleClass="product-image">
+                    <image><Image url="@images/valmora-product-hero.png" /></image>
+                </ImageView>
+                <VBox spacing="12" HBox.hgrow="ALWAYS">
+                    <Label text="PRODUCT RATING" styleClass="product-kicker" />
+                    <Label fx:id="averageLabel" styleClass="hero-rating" wrapText="true" />
+                    <Label fx:id="productNameLabel" styleClass="product-name" wrapText="true" />
+                    <Label fx:id="productDescriptionLabel" styleClass="muted-text" wrapText="true" />
+                    <Label fx:id="topReviewsLabel" styleClass="body-text" wrapText="true" />
+                    <Button text="+  Write a review" onAction="#writeReview" maxWidth="1.7976931348623157E308" styleClass="primary-button" />
+                </VBox>
+            </HBox>
+            <Label text="All customer reviews" styleClass="screen-title" />
+            <HBox spacing="10">
+                <ComboBox fx:id="ratingFilterBox" onAction="#refreshReviews" prefWidth="145" />
+                <ComboBox fx:id="sortBox" onAction="#refreshReviews" prefWidth="145" />
+                <TextField fx:id="searchField" promptText="Search title or comment" onAction="#refreshReviews" HBox.hgrow="ALWAYS" />
+                <Button text="Search" onAction="#refreshReviews" styleClass="secondary-button" />
+            </HBox>
+            <ListView fx:id="reviewsList" prefHeight="290" VBox.vgrow="ALWAYS" />
+            <HBox spacing="9">
+                <Button text="Helpful" onAction="#markHelpful" styleClass="secondary-button" />
+                <Button text="Not helpful" onAction="#markUnhelpful" styleClass="secondary-button" />
+                <Button text="Report" onAction="#reportSelected" styleClass="danger-button" />
+                <HBox HBox.hgrow="ALWAYS" />
+                <Button text="Edit mine" onAction="#editSelected" styleClass="secondary-button" />
+                <Button text="Delete mine" onAction="#deleteSelected" styleClass="danger-button" />
+            </HBox>
+            <Label fx:id="actionLabel" styleClass="message-label" wrapText="true" />
+        </VBox>
+    </center>
+</BorderPane>

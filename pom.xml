@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ecommerce</groupId>
+    <artifactId>finance-reporting-launchpad</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>Finance and Reporting (with Launchpad)</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- JavaFX dependencies -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>21.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>21.0.2</version>
+        </dependency>
+        <!--
+            Added for the Delivery & Logistics component: its ProjectSmokeCheck
+            utility uses javafx.embed.swing.SwingFXUtils to write a PNG snapshot.
+        -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>21.0.2</version>
+        </dependency>
+        <!-- SQLite JDBC -->
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.42.0.0</version>
+        </dependency>
+        <!-- Required at runtime by sqlite-jdbc; was missing, which crashed every screen that touches DatabaseManager -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.17</version>
+        </dependency>
+        <!-- MySQL Connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+        </dependency>
+        <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.10.2</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>5.8.0</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-junit-jupiter</artifactId>
+        <version>5.8.0</version>
+        <scope>test</scope>
+    </dependency>
+        </dependencies>
+
+    <build>
+        <plugins>
+       
+         <!-- existing plugins ... -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.2.5</version>
+        </plugin>
+            <!-- Compiler plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
+            
+            <!-- JavaFX plugin (with CSS compilation disabled) -->
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>com.ecommerce.finance.MainApp</mainClass>
+                    <css2bin>false</css2bin>
+                </configuration>
+            </plugin>
+
+            <!--
+                Apple Silicon workaround: javafx-maven-plugin 0.0.8 predates Apple
+                Silicon and resolves the wrong (Intel) native graphics library on
+                arm64 Macs, causing "UnsatisfiedLinkError: incompatible architecture".
+                This plugin runs the app as a plain `java` process instead, pointing
+                directly at the correct mac-aarch64 JavaFX jars. Use goal "exec:exec".
+            -->
+
+            <!--
+                (launchpad integration note: this used to hardcode
+                "/Users/mohammadhadi/..." for both the .m2 repository and the
+                project's target/classes folder, which only worked on one laptop.
+                Both are now resolved through Maven's own built-in properties
+                (${settings.localRepository}, ${project.build.outputDirectory}),
+                so the exact same workaround now works on any machine, for any
+                user, wherever the project happens to sit on disk.)
+            -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <executable>/bin/bash</executable>
+                    <arguments>
+                        <argument>-c</argument>
+                        <argument>java --module-path "${settings.localRepository}/org/openjfx/javafx-base/21.0.2/javafx-base-21.0.2-mac-aarch64.jar:${settings.localRepository}/org/openjfx/javafx-graphics/21.0.2/javafx-graphics-21.0.2-mac-aarch64.jar:${settings.localRepository}/org/openjfx/javafx-controls/21.0.2/javafx-controls-21.0.2-mac-aarch64.jar:${settings.localRepository}/org/openjfx/javafx-fxml/21.0.2/javafx-fxml-21.0.2-mac-aarch64.jar:${settings.localRepository}/org/openjfx/javafx-swing/21.0.2/javafx-swing-21.0.2-mac-aarch64.jar" --add-modules javafx.controls,javafx.fxml,javafx.swing -cp "${project.build.outputDirectory}:${settings.localRepository}/org/xerial/sqlite-jdbc/3.42.0.0/sqlite-jdbc-3.42.0.0.jar:${settings.localRepository}/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:${settings.localRepository}/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar" com.ecommerce.finance.MainApp</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

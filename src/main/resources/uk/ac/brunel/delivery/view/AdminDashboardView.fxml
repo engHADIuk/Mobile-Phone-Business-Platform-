@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uk.ac.brunel.delivery.controller.AdminDashboardController"
+            style="-fx-background-color: #080909;">
+    <top>
+        <HBox minHeight="64" prefHeight="64" alignment="CENTER_LEFT" spacing="14"
+              style="-fx-background-color: #0A0B0B; -fx-border-color: transparent transparent #202222 transparent; -fx-padding: 0 24;">
+            <children>
+                <StackPane minWidth="30" minHeight="30" maxWidth="30" maxHeight="30" style="-fx-background-color: #D5C38B; -fx-background-radius: 7;"><children><Label text="V" style="-fx-text-fill: #151515; -fx-font-weight: bold;"/></children></StackPane>
+                <VBox spacing="2"><children><Label text="VELMORA" style="-fx-text-fill: #F1F1EF; -fx-font-weight: bold; -fx-font-size: 15;"/><Label text="L U X U R Y  T E C H" style="-fx-text-fill: #696B68; -fx-font-size: 6;"/></children></VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="⌕   Search the VELMORA collection" prefWidth="420" style="-fx-background-color: #181919; -fx-text-fill: #656868; -fx-border-color: #292B2B; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 9 14;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="Delivery" style="-fx-background-color: #D5C38B; -fx-text-fill: #151515; -fx-font-weight: bold; -fx-background-radius: 7; -fx-padding: 8 17;"/>
+                <Label fx:id="userLabel" style="-fx-text-fill: #A1A3A2; -fx-font-size: 11;"/>
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #080909; -fx-background-color: #080909;">
+            <content>
+                <VBox style="-fx-background-color: #080909;">
+                    <children>
+                        <HBox minHeight="420" alignment="CENTER_LEFT" spacing="80" style="-fx-padding: 48 60; -fx-border-color: transparent transparent #202222 transparent;">
+                            <children>
+                                <VBox spacing="17" HBox.hgrow="ALWAYS" maxWidth="720">
+                                    <children>
+                                        <Label text="V E L M O R A   D E L I V E R Y   O P E R A T I O N S" style="-fx-text-fill: #D5C38B; -fx-font-size: 9; -fx-font-weight: bold;"/>
+                                        <Label text="DELIVERY &amp;&#10;LOGISTICS" style="-fx-text-fill: #F1F1EF; -fx-line-spacing: -10;">
+                                            <font><Font name="Arial Black" size="70"/></font>
+                                        </Label>
+                                        <Label text="Assign deliveries to drivers, monitor live status transitions, and oversee the full logistics pipeline for flagship marketplace orders."
+                                               wrapText="true" maxWidth="590" style="-fx-text-fill: #797C7B; -fx-font-size: 12; -fx-line-spacing: 5;"/>
+                                        <HBox spacing="10">
+                                            <children>
+                                                <Button fx:id="assignButton" text="+ Assign Delivery" onAction="#assignSelected"/>
+                                                <Button fx:id="generateButton" text="Generate Sample Order" onAction="#generateSampleOrder"/>
+                                                <Button fx:id="logoutButton" text="Sign Out" onAction="#logout"/>
+                                            </children>
+                                        </HBox>
+                                        <Label fx:id="notificationLabel" style="-fx-text-fill: #3BD5A0; -fx-font-size: 10;"/>
+                                    </children>
+                                </VBox>
+                                <GridPane hgap="12" vgap="12" prefWidth="355">
+                                    <columnConstraints><ColumnConstraints percentWidth="50"/><ColumnConstraints percentWidth="50"/></columnConstraints>
+                                    <children>
+                                        <VBox GridPane.columnIndex="0" GridPane.rowIndex="0" spacing="7" style="-fx-background-color: #1A1B1B; -fx-border-color: #292B2B; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 18;"><children><Label text="ACTIVE DELIVERIES" style="-fx-text-fill: #747776; -fx-font-size: 8;"/><Label fx:id="activeCount" text="0" style="-fx-text-fill: #4CB7F6; -fx-font-size: 32; -fx-font-weight: bold;"/></children></VBox>
+                                        <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" spacing="7" style="-fx-background-color: #1A1B1B; -fx-border-color: #292B2B; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 18;"><children><Label text="PENDING" style="-fx-text-fill: #747776; -fx-font-size: 8;"/><Label fx:id="pendingCount" text="0" style="-fx-text-fill: #ECA91C; -fx-font-size: 32; -fx-font-weight: bold;"/></children></VBox>
+                                        <VBox GridPane.columnIndex="0" GridPane.rowIndex="1" spacing="7" style="-fx-background-color: #1A1B1B; -fx-border-color: #292B2B; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 18;"><children><Label text="DELIVERED TODAY" style="-fx-text-fill: #747776; -fx-font-size: 8;"/><Label fx:id="deliveredCount" text="0" style="-fx-text-fill: #3BD5A0; -fx-font-size: 32; -fx-font-weight: bold;"/></children></VBox>
+                                        <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" spacing="7" style="-fx-background-color: #1A1B1B; -fx-border-color: #292B2B; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 18;"><children><Label text="FAILED" style="-fx-text-fill: #747776; -fx-font-size: 8;"/><Label fx:id="failedCount" text="0" style="-fx-text-fill: #F1F1EF; -fx-font-size: 32; -fx-font-weight: bold;"/></children></VBox>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </HBox>
+                        <BorderPane minHeight="470">
+                            <left>
+                                <VBox prefWidth="220" spacing="10" style="-fx-background-color: #0A0B0B; -fx-border-color: transparent #202222 transparent transparent; -fx-padding: 28 16;">
+                                    <children>
+                                        <Label text="V I E W S" style="-fx-text-fill: #686B69; -fx-font-size: 8; -fx-padding: 0 8 6 8;"/>
+                                        <Button fx:id="deliveriesButton" text="▣   All Deliveries" onAction="#openDeliveries" maxWidth="Infinity" alignment="CENTER_LEFT"/>
+                                        <Button fx:id="liveMapButton" text="◆   Live Map" onAction="#openLiveMap" maxWidth="Infinity" alignment="CENTER_LEFT"/>
+                                        <Region prefHeight="14"/>
+                                        <Label text="S I M U L A T I O N" style="-fx-text-fill: #686B69; -fx-font-size: 8; -fx-padding: 0 8 6 8;"/>
+                                        <Label text="●  Random timer transitions" style="-fx-text-fill: #797C7B; -fx-font-size: 10; -fx-padding: 8;"/>
+                                        <Label text="●  One active job per driver" style="-fx-text-fill: #797C7B; -fx-font-size: 10; -fx-padding: 8;"/>
+                                        <Label text="●  Full timestamp audit trail" style="-fx-text-fill: #797C7B; -fx-font-size: 10; -fx-padding: 8;"/>
+                                    </children>
+                                </VBox>
+                            </left>
+                            <center>
+                                <VBox spacing="18" style="-fx-padding: 28 30 42 30;">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT">
+                                            <children>
+                                                <VBox spacing="5"><children><Label text="ALL DELIVERIES" style="-fx-text-fill: #F1F1EF; -fx-font-size: 24; -fx-font-weight: bold;"/><Label text="Real-time delivery tracking and management" style="-fx-text-fill: #797C7B; -fx-font-size: 10;"/></children></VBox>
+                                                <Region HBox.hgrow="ALWAYS"/>
+                                                <Button text="Refresh" onAction="#refresh" style="-fx-background-color: #181919; -fx-text-fill: #A1A3A2; -fx-border-color: #292B2B; -fx-border-radius: 7; -fx-background-radius: 7;"/>
+                                            </children>
+                                        </HBox>
+                                        <TableView fx:id="deliveryTable" prefHeight="330" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="idColumn" text="DELIVERY ID" prefWidth="110"/>
+                                                <TableColumn fx:id="orderColumn" text="ORDER REF" prefWidth="105"/>
+                                                <TableColumn fx:id="driverColumn" text="DRIVER" prefWidth="145"/>
+                                                <TableColumn fx:id="addressColumn" text="ADDRESS" prefWidth="220"/>
+                                                <TableColumn fx:id="statusColumn" text="STATUS" prefWidth="145"/>
+                                                <TableColumn fx:id="progressColumn" text="PROGRESS" prefWidth="145"/>
+                                                <TableColumn fx:id="etaColumn" text="ETA" prefWidth="80"/>
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+                            </center>
+                        </BorderPane>
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

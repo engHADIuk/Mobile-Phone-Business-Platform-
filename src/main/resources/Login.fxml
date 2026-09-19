@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Text?>
+
+<HBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ecommerce.finance.LoginController"
+      styleClass="login-root">
+
+    <fx:define>
+        <ToggleGroup fx:id="roleToggleGroup"/>
+    </fx:define>
+
+    <!-- ============== LEFT: Branding panel ============== -->
+    <VBox styleClass="login-left-panel" alignment="CENTER_LEFT" spacing="26" HBox.hgrow="ALWAYS">
+
+        <VBox spacing="0">
+            <Text text="Finance &amp;" style="-fx-fill: #ffffff; -fx-font-size: 46px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI';"/>
+            <Text text="Reporting Hub" style="-fx-fill: linear-gradient(to right, #4f8ff7, #a5c8ff); -fx-font-size: 46px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI';"/>
+        </VBox>
+
+        <Text text="Real-time analytics, revenue tracking, and order intelligence — unified in one intelligent dashboard."
+              wrappingWidth="480" style="-fx-fill: #8a9bb5; -fx-font-size: 15px; -fx-font-family: 'Segoe UI';"/>
+
+        <VBox spacing="16" style="-fx-padding: 14 0 0 0;">
+
+            <!-- Monthly Revenue -->
+            <HBox fx:id="statCard1" styleClass="login-stat-card" alignment="CENTER_LEFT" spacing="16">
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Text text="MONTHLY REVENUE" style="-fx-fill: #8a9bb5; -fx-font-size: 11px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI';"/>
+                    <Text text="\$284,391" style="-fx-fill: #ffffff; -fx-font-size: 22px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI';"/>
+                </VBox>
+                <Label text="+18.4%" styleClass="stat-pill-positive"/>
+            </HBox>
+
+            <!-- Total Orders -->
+            <HBox fx:id="statCard2" styleClass="login-stat-card" alignment="CENTER_LEFT" spacing="16">
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Text text="TOTAL ORDERS" style="-fx-fill: #8a9bb5; -fx-font-size: 11px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI';"/>
+                    <Text text="14,872" style="-fx-fill: #ffffff; -fx-font-size: 22px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI';"/>
+                </VBox>
+                <Label text="+6.2%" styleClass="stat-pill-positive"/>
+            </HBox>
+
+            <!-- Avg Order Value -->
+            <HBox fx:id="statCard3" styleClass="login-stat-card" alignment="CENTER_LEFT" spacing="16">
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Text text="AVG. ORDER VALUE" style="-fx-fill: #8a9bb5; -fx-font-size: 11px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI';"/>
+                    <Text text="\$91.40" style="-fx-fill: #ffffff; -fx-font-size: 22px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI';"/>
+                </VBox>
+                <Label text="-2.1%" styleClass="stat-pill-negative"/>
+            </HBox>
+
+            <!-- Recent Orders teaser -->
+            <VBox fx:id="statCard4" styleClass="login-stat-card" spacing="4">
+                <Text text="Recent Orders" style="-fx-fill: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI';"/>
+                <Text text="3 new since your last visit" style="-fx-fill: #8a9bb5; -fx-font-size: 12px; -fx-font-family: 'Segoe UI';"/>
+            </VBox>
+        </VBox>
+    </VBox>
+
+    <!-- ============== RIGHT: Sign-in glass card ============== -->
+    <StackPane prefWidth="620" style="-fx-padding: 40;">
+        <VBox fx:id="glassCard" alignment="CENTER" spacing="18" maxWidth="420" styleClass="glass-card">
+
+            <!-- Badge icon (shield-check) -->
+            <StackPane styleClass="glass-badge">
+                <SVGPath content="M0,-16 L14,-11 L14,-1 C14,9 7,16 0,19 C-7,16 -14,9 -14,-1 L-14,-11 Z"
+                         style="-fx-fill: rgba(255,255,255,0.95);"/>
+                <SVGPath content="M-7,0 L-2,6 L9,-8"
+                         style="-fx-fill: transparent; -fx-stroke: #1d3f8f; -fx-stroke-width: 2.4; -fx-stroke-line-cap: round; -fx-stroke-line-join: round;"/>
+            </StackPane>
+
+            <!-- Header -->
+            <VBox alignment="CENTER" spacing="6">
+                <Text text="Welcome back" style="-fx-fill: #ffffff; -fx-font-size: 26px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI';"/>
+                <Text text="Sign in to your VELMORA dashboard" style="-fx-fill: rgba(255,255,255,0.65); -fx-font-size: 13px; -fx-font-family: 'Segoe UI';"/>
+            </VBox>
+
+            <!-- Role Selector -->
+            <HBox alignment="CENTER" spacing="0" styleClass="glass-input" style="-fx-padding: 4;">
+                <ToggleButton fx:id="adminToggleBtn" text="Admin Login" toggleGroup="$roleToggleGroup"
+                              selected="true" styleClass="role-btn" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                              style="-fx-font-size: 13px; -fx-padding: 10 0;"/>
+                <ToggleButton fx:id="employeeToggleBtn" text="Employee Login" toggleGroup="$roleToggleGroup"
+                              styleClass="role-btn" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                              style="-fx-font-size: 13px; -fx-padding: 10 0;"/>
+            </HBox>
+
+            <!-- Email Field -->
+            <VBox spacing="6">
+                <Text text="EMAIL ADDRESS" style="-fx-fill: rgba(255,255,255,0.65); -fx-font-size: 11px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI';"/>
+                <HBox fx:id="emailWrap" alignment="CENTER_LEFT" spacing="10" styleClass="glass-input">
+                    <TextField fx:id="usernameField" promptText="hadi7@email.com" styleClass="glass-input-inner" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </VBox>
+
+            <!-- Password Field -->
+            <VBox spacing="6">
+                <Text text="PASSWORD" style="-fx-fill: rgba(255,255,255,0.65); -fx-font-size: 11px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI';"/>
+                <HBox fx:id="passwordWrap" alignment="CENTER_LEFT" spacing="10" styleClass="glass-input">
+                    <StackPane HBox.hgrow="ALWAYS">
+                        <PasswordField fx:id="passwordField" promptText="Enter your password" styleClass="glass-input-inner" maxWidth="Infinity"/>
+                        <TextField fx:id="passwordVisibleField" promptText="Enter your password" styleClass="glass-input-inner" maxWidth="Infinity" visible="false" managed="false"/>
+                    </StackPane>
+                    <Button fx:id="eyeToggleBtn" text="Show" styleClass="glass-eye-toggle" onAction="#togglePasswordVisibility"/>
+                </HBox>
+            </VBox>
+
+            <!-- Options Row -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <CheckBox text="Remember me" styleClass="glass-checkbox"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Hyperlink text="Forgot password?" styleClass="glass-link" onAction="#forgotPassword"/>
+            </HBox>
+
+            <!-- Sign In Button -->
+            <Button text="Sign In to Dashboard  →" onAction="#handleLogin" styleClass="glass-signin-btn" maxWidth="Infinity"/>
+
+            <!-- Error Message -->
+            <Label fx:id="messageLabel" styleClass="glass-error" wrapText="true" alignment="CENTER" maxWidth="Infinity"/>
+
+            <!-- Footer -->
+            <Text text="© 2026 Finance &amp; Reporting" style="-fx-fill: rgba(255,255,255,0.45); -fx-font-size: 11px; -fx-font-family: 'Segoe UI';"/>
+        </VBox>
+    </StackPane>
+</HBox>

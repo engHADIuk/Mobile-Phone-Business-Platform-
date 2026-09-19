@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="600" prefWidth="350" stylesheets="@modern.css" styleClass="screen" fx:controller="org.gwanhee.groupproject.OrderHistoryController" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+ <content><VBox styleClass="page"><children><Label text="Order history" styleClass="title"/><Label text="Your recent purchases appear here." styleClass="subtitle"/><VBox maxWidth="310" styleClass="order-card"><children><Label text="Order #1001" styleClass="info-value"/><Label text="Processing · £24.99" styleClass="subtitle"/></children></VBox><VBox maxWidth="310" styleClass="order-card"><children><Label text="Order #1000" styleClass="info-value"/><Label text="Delivered · £18.50" styleClass="subtitle"/></children></VBox><VBox maxWidth="310" styleClass="order-card"><children><Label text="Order #0999" styleClass="info-value"/><Label text="Delivered · £42.00" styleClass="subtitle"/></children></VBox><Button fx:id="backButton" maxWidth="310" onAction="#backbutton" text="Back" styleClass="ghost-button"/></children></VBox></content>
+</ScrollPane>

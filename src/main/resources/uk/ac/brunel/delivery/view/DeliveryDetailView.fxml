@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="uk.ac.brunel.delivery.controller.DeliveryDetailController"
+           style="-fx-background-color: #080909; -fx-padding: 34;">
+    <children>
+        <VBox maxWidth="1120" maxHeight="800" spacing="20" style="-fx-background-color: #0D0E0E; -fx-border-color: #292B2B; -fx-border-radius: 14; -fx-background-radius: 14; -fx-padding: 30;">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="14">
+                    <children>
+                        <StackPane minWidth="34" minHeight="34" maxWidth="34" maxHeight="34" style="-fx-background-color: #D5C38B; -fx-background-radius: 8;"><children><Label text="V" style="-fx-text-fill: #151515; -fx-font-weight: bold;"/></children></StackPane>
+                        <VBox spacing="3"><children><Label text="DELIVERY DETAILS &amp; AUDIT" style="-fx-text-fill: #F1F1EF; -fx-font-size: 25; -fx-font-weight: bold;"/><Label text="Read-only operational record and timestamp history" style="-fx-text-fill: #797C7B; -fx-font-size: 10;"/></children></VBox>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="statusContainer"/>
+                    </children>
+                </HBox>
+                <GridPane hgap="35" vgap="17" style="-fx-background-color: #181919; -fx-background-radius: 10; -fx-border-color: #292B2B; -fx-border-radius: 10; -fx-padding: 22;">
+                    <children>
+                        <Label text="DELIVERY ID" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-text-fill: #686B69; -fx-font-size: 9;"/><Label fx:id="deliveryIdLabel" GridPane.columnIndex="1" GridPane.rowIndex="0" style="-fx-text-fill: #F1F1EF; -fx-font-weight: bold;"/>
+                        <Label text="ORDER REFERENCE" GridPane.columnIndex="2" GridPane.rowIndex="0" style="-fx-text-fill: #686B69; -fx-font-size: 9;"/><Label fx:id="orderReferenceLabel" GridPane.columnIndex="3" GridPane.rowIndex="0" style="-fx-text-fill: #F1F1EF; -fx-font-weight: bold;"/>
+                        <Label text="DRIVER" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-text-fill: #686B69; -fx-font-size: 9;"/><Label fx:id="driverLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" style="-fx-text-fill: #D5C38B; -fx-font-weight: bold;"/>
+                        <Label text="SCHEDULE" GridPane.columnIndex="2" GridPane.rowIndex="1" style="-fx-text-fill: #686B69; -fx-font-size: 9;"/><Label fx:id="scheduleLabel" GridPane.columnIndex="3" GridPane.rowIndex="1" style="-fx-text-fill: #A1A3A2;"/>
+                        <Label text="ADDRESS" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-text-fill: #686B69; -fx-font-size: 9;"/><Label fx:id="addressLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.columnSpan="3" style="-fx-text-fill: #A1A3A2;"/>
+                        <Label text="WAREHOUSE" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-text-fill: #686B69; -fx-font-size: 9;"/><Label fx:id="warehouseLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" style="-fx-text-fill: #A1A3A2;"/>
+                        <Label text="ESTIMATED TIME" GridPane.columnIndex="2" GridPane.rowIndex="3" style="-fx-text-fill: #686B69; -fx-font-size: 9;"/><Label fx:id="etaLabel" GridPane.columnIndex="3" GridPane.rowIndex="3" style="-fx-text-fill: #A1A3A2;"/>
+                    </children>
+                </GridPane>
+                <HBox alignment="CENTER_LEFT"><children><VBox spacing="4"><children><Label text="STATUS AUDIT LOG" style="-fx-text-fill: #F1F1EF; -fx-font-size: 18; -fx-font-weight: bold;"/><Label text="Every assignment and status transition is timestamped" style="-fx-text-fill: #797C7B; -fx-font-size: 10;"/></children></VBox></children></HBox>
+                <TableView fx:id="auditTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="timestampColumn" text="TIMESTAMP" prefWidth="180"/>
+                        <TableColumn fx:id="transitionColumn" text="TRANSITION" prefWidth="240"/>
+                        <TableColumn fx:id="actorColumn" text="CHANGED BY" prefWidth="170"/>
+                        <TableColumn fx:id="noteColumn" text="NOTE" prefWidth="460"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="10" alignment="CENTER_RIGHT"><children><Button fx:id="backButton" text="Back" onAction="#goBack"/><Button fx:id="assignButton" text="Assign / Reassign" onAction="#assignDelivery"/></children></HBox>
+            </children>
+        </VBox>
+    </children>
+</StackPane>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uk.ac.brunel.delivery.controller.DriverDashboardController"
+            style="-fx-background-color: #080909;">
+    <top>
+        <HBox minHeight="64" alignment="CENTER_LEFT" spacing="13" style="-fx-background-color: #0A0B0B; -fx-border-color: transparent transparent #202222 transparent; -fx-padding: 0 24;">
+            <children>
+                <StackPane minWidth="30" minHeight="30" maxWidth="30" maxHeight="30" style="-fx-background-color: #D5C38B; -fx-background-radius: 7;"><children><Label text="V" style="-fx-text-fill: #151515; -fx-font-weight: bold;"/></children></StackPane>
+                <VBox spacing="2"><children><Label text="VELMORA" style="-fx-text-fill: #F1F1EF; -fx-font-weight: bold; -fx-font-size: 15;"/><Label text="D R I V E R  O P E R A T I O N S" style="-fx-text-fill: #696B68; -fx-font-size: 6;"/></children></VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="Driver Portal" style="-fx-background-color: #D5C38B; -fx-text-fill: #151515; -fx-font-weight: bold; -fx-background-radius: 7; -fx-padding: 8 17;"/>
+                <Label fx:id="driverNameLabel" style="-fx-text-fill: #A1A3A2; -fx-font-size: 11;"/>
+                <Button fx:id="logoutButton" text="Sign Out" onAction="#logout"/>
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="20" style="-fx-padding: 34 42 40 42;">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="14">
+                    <children>
+                        <VBox spacing="5"><children><Label text="MY DELIVERY QUEUE" style="-fx-text-fill: #F1F1EF; -fx-font-size: 29; -fx-font-weight: bold;"/><Label text="Deliveries run in schedule order; only one can be active at a time" style="-fx-text-fill: #797C7B; -fx-font-size: 11;"/></children></VBox>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <VBox spacing="5" minWidth="150" style="-fx-background-color: #1A1B1B; -fx-border-color: #292B2B; -fx-border-radius: 9; -fx-background-radius: 9; -fx-padding: 13 18;"><children><Label text="PENDING QUEUE" style="-fx-text-fill: #747776; -fx-font-size: 8;"/><Label fx:id="queueCountLabel" text="0" style="-fx-text-fill: #ECA91C; -fx-font-size: 25; -fx-font-weight: bold;"/></children></VBox>
+                    </children>
+                </HBox>
+                <HBox spacing="20">
+                    <children>
+                        <VBox spacing="7" HBox.hgrow="ALWAYS" style="-fx-background-color: #151616; -fx-border-color: #292B2B; -fx-border-radius: 9; -fx-background-radius: 9; -fx-padding: 16 20;"><children><Label text="ACTIVE DELIVERY" style="-fx-text-fill: #747776; -fx-font-size: 8;"/><Label fx:id="activeDeliveryLabel" text="No active delivery" style="-fx-text-fill: #4CB7F6; -fx-font-size: 16; -fx-font-weight: bold;"/></children></VBox>
+                        <VBox spacing="7" HBox.hgrow="ALWAYS" style="-fx-background-color: #151616; -fx-border-color: #292B2B; -fx-border-radius: 9; -fx-background-radius: 9; -fx-padding: 16 20;"><children><Label text="LIVE SYSTEM" style="-fx-text-fill: #747776; -fx-font-size: 8;"/><Label fx:id="liveStatusLabel" style="-fx-text-fill: #3BD5A0; -fx-font-size: 12; -fx-font-weight: bold;"/></children></VBox>
+                    </children>
+                </HBox>
+                <TableView fx:id="deliveryTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="idColumn" text="DELIVERY ID" prefWidth="110"/>
+                        <TableColumn fx:id="orderColumn" text="ORDER REF" prefWidth="105"/>
+                        <TableColumn fx:id="driverColumn" text="DRIVER" prefWidth="145"/>
+                        <TableColumn fx:id="addressColumn" text="ADDRESS" prefWidth="230"/>
+                        <TableColumn fx:id="statusColumn" text="STATUS" prefWidth="150"/>
+                        <TableColumn fx:id="progressColumn" text="PROGRESS" prefWidth="155"/>
+                        <TableColumn fx:id="etaColumn" text="ETA" prefWidth="85"/>
+                        <TableColumn fx:id="scheduledColumn" text="SCHEDULED" prefWidth="150"/>
+                    </columns>
+                </TableView>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <children>
+                        <Label text="Statuses advance automatically using random assessment-demo timers." style="-fx-text-fill: #797C7B; -fx-font-size: 10;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="detailButton" text="View Delivery &amp; Audit" onAction="#showDetails"/>
+                        <Button fx:id="failButton" text="Report Active Delivery Failed" onAction="#reportFailed"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?><?import javafx.scene.control.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.nc1605.inventorywarehouse.controller.ProductsController">
+ <left><VBox spacing="10" styleClass="sidebar"><Label text="VELMORA" styleClass="brand"/><Label text="INVENTORY" styleClass="subtitle"/><VBox prefHeight="28"/><Button text="◈  Dashboard" onAction="#dashboard"/><Button text="▣  Warehouses" onAction="#warehouses"/><Button text="□  Inventory" onAction="#inventory"/><Button text="▦  Products" onAction="#products"/><Button text="↔  Transfers" onAction="#transfers"/><Button text="▥  Reports" onAction="#reports"/></VBox></left>
+ <center><VBox spacing="18" styleClass="content"><Label text="Products" styleClass="page-title"/><Label text="VELMORA product catalogue and total stock across all warehouses." styleClass="subtitle"/><FlowPane fx:id="productCards" hgap="18" vgap="18" prefWrapLength="800"/></VBox></center>
+</BorderPane>

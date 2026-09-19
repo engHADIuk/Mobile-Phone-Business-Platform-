@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="600" prefWidth="350" stylesheets="@modern.css" styleClass="screen" fx:controller="org.gwanhee.groupproject.RegisterController" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+  <content>
+    <VBox alignment="TOP_CENTER" styleClass="page">
+      <children>
+        <VBox maxWidth="310" styleClass="card">
+          <children>
+            <Label fx:id="welcomeText" text="Create account" styleClass="title"/>
+            <Label text="Enter your details to get started." styleClass="subtitle"/>
+            <Label text="Name" styleClass="field-label"/><TextField fx:id="registName" promptText="Full name"/>
+            <Label text="Email" styleClass="field-label"/><TextField fx:id="registEmail" promptText="name@example.com"/>
+            <Label text="Address" styleClass="field-label"/><TextField fx:id="registAddress" promptText="Delivery address"/>
+            <Label text="ID" styleClass="field-label"/><TextField fx:id="registID" promptText="Choose an ID"/>
+            <Label text="Password" styleClass="field-label"/><PasswordField fx:id="registPassword" promptText="Choose a password"/>
+            <Button fx:id="registrationButton" maxWidth="Infinity" onAction="#registrationDone" text="Register" styleClass="primary-button"/>
+          </children>
+        </VBox>
+      </children>
+    </VBox>
+  </content>
+</ScrollPane>
